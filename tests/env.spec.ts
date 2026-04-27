@@ -19,6 +19,10 @@ test('validar retries configurados en CI', async ({}, testInfo) => {
   console.log('CI:', process.env.CI);
   console.log('Retries configurados:', testInfo.project.retries);
 
-  expect(process.env.CI).toBe('true');
-  expect(testInfo.project.retries).toBe(2);
+  if (process.env.CI) {
+    expect(process.env.CI).toBe('true');
+    expect(testInfo.project.retries).toBe(2);
+  } else {
+    expect(testInfo.project.retries).toBe(0);
+  }
 });

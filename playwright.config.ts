@@ -64,18 +64,35 @@ export default defineConfig({
   },
 
   projects: [
-    {
-      name: 'setup',
-      testMatch: /.*\.setup\.spec\.ts/,
-    },
+  {
+    name: 'setup-auth',
+    testMatch: /.*auth\.setup\.spec\.ts/,
+  },
 
-    {
-      name: 'Chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: 'storage/auth-state.json',
-      },
-      dependencies: ['setup'],
+  {
+    name: 'setup-data',
+    testMatch: /.*generar-envios\.setup\.spec\.ts/,
+  },
+
+  {
+    name: 'API',
+    testMatch: /.*api.*\.spec\.ts/,
+    dependencies: ['setup-data'],
+    workers: 1,
+  },
+
+  {
+    name: 'Chromium',
+    testIgnore: [
+      /.*\.setup\.spec\.ts/,
+      /.*api.*\.spec\.ts/,
+    ],
+    use: {
+      ...devices['Desktop Chrome'],
+      storageState: 'storage/auth-state.json',
     },
-  ],
+    dependencies: ['setup-auth'],
+  },
+],
+  
 });

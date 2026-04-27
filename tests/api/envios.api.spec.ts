@@ -1,5 +1,4 @@
-import { test, expect } from '@playwright/test';
-import { AuthApi } from '../../api/auth.api';
+import { test, expect } from '../../fixtures/api.fixture';
 import { EnviosApi } from '../../api/envios.api';
 import { EnvioBuilder } from '../../builders/envio.builder';
 import {
@@ -8,20 +7,17 @@ import {
 } from '../../data/envios.data';
 
 test.describe('Envios API - Creación de envíos', () => {
-
-  test('debe crear un envío monobulto service 1 en estado Pendiente', async ({ request }) => {
+  test('debe crear un envío monobulto service 1 en estado Pendiente', async ({ apiRequest, accessToken }) => {
     // Arrange
-    const authApi = new AuthApi(request);
-    const enviosApi = new EnviosApi(request);
+    const enviosApi = new EnviosApi(apiRequest);
 
-    const token = await authApi.getAccessToken();
     const payload = EnvioBuilder.build(envioMonobultoService1TrelewData);
 
     const expectedTrackingId = payload.bulk[0].pickupId;
     const expectedShipper = payload.bulk[0].shipper;
 
     // Act
-    const response = await enviosApi.crearEnvio(payload, token);
+    const response = await enviosApi.crearEnvio(payload, accessToken);
 
     // Assert (estructura)
     expect(response.success).toHaveLength(1);
@@ -49,19 +45,17 @@ test.describe('Envios API - Creación de envíos', () => {
     console.log('Envío monobulto creado:', envio.trackingId);
   });
 
-  test('debe crear un envío multibulto service 2 en estado Pendiente', async ({ request }) => {
+  test('debe crear un envío multibulto service 2 en estado Pendiente', async ({ apiRequest, accessToken }) => {
     // Arrange
-    const authApi = new AuthApi(request);
-    const enviosApi = new EnviosApi(request);
+    const enviosApi = new EnviosApi(apiRequest);
 
-    const token = await authApi.getAccessToken();
     const payload = EnvioBuilder.build(envioMultibultoService2TrelewData);
 
     const expectedTrackingId = payload.bulk[0].pickupId;
     const expectedShipper = payload.bulk[0].shipper;
 
     // Act
-    const response = await enviosApi.crearEnvio(payload, token);
+    const response = await enviosApi.crearEnvio(payload, accessToken);
 
     // Assert (estructura)
     expect(response.success).toHaveLength(1);
@@ -88,5 +82,4 @@ test.describe('Envios API - Creación de envíos', () => {
 
     console.log('Envío multibulto creado:', envio.trackingId);
   });
-
 });
