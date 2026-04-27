@@ -9,3 +9,7 @@ test('test', async ({ page }) => {
   await page.getByText('Ingresar').click();
   await page.locator('a').filter({ hasText: 'Sistema Core' }).click();
 });
+
+test('nombre del test', async ({ page }) => {
+  // pasos del caso de prueba
+});

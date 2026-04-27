@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '../pages/HomePage';
+import { HomePage } from '../pages/login/LoginPage';
 
 test('validar titulo con Page', async ({ page }) => {
 

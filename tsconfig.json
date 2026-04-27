@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+
+    "paths": {
+      "@api/*": ["api/*"],
+      "@utils/*": ["utils/*"],
+      "@builders/*": ["builders/*"],
+      "@data/*": ["data/*"],
+      "@types/*": ["types/*"],
+      "@pages/*": ["pages/*"]
+    },
+
+    "types": ["node", "@playwright/test"],
+
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "outDir": "dist"
+  },
+
+  "include": ["**/*.ts"]
+}

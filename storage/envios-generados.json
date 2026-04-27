@@ -1,0 +1,48 @@
+{
+  "monobulto": [
+    {
+      "trackingId": "QA26042702211LOJ",
+      "tipo": "monobulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 1
+    },
+    {
+      "trackingId": "QA26042702211J7P",
+      "tipo": "monobulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 1
+    },
+    {
+      "trackingId": "QA2604270221XZAX",
+      "tipo": "monobulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 1
+    },
+    {
+      "trackingId": "QA2604270221YB7N",
+      "tipo": "monobulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 1
+    },
+    {
+      "trackingId": "QA2604270221MTHR",
+      "tipo": "monobulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 1
+    }
+  ],
+  "multibulto": [
+    {
+      "trackingId": "QA26042702214Z7N",
+      "tipo": "multibulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 2
+    },
+    {
+      "trackingId": "QA26042702216C8R",
+      "tipo": "multibulto",
+      "estadoInicial": "Pendiente",
+      "piezas": 2
+    }
+  ]
+}
